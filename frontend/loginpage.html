@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - AthleteHub</title>
+  <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 flex justify-center items-center h-screen">
+
+  <!-- Main Login Container -->
+  <div class="bg-white shadow-lg rounded-lg p-8 w-full sm:w-96 max-w-md">
+    <div class="text-center">
+      <img src="https://i.postimg.cc/MT4cg14w/our-company-name-is-Athlete-Hub-it-should-show-an-athlete-removebg-preview-1.png" alt="AthleteHub Logo" class="mx-auto mb-1 w-32 h-auto">
+    </div>
+    <h2 class="text-xl font-bold text-center mb-4">Login into Account</h2>
+
+    <!-- Login Form -->
+    <form id="login-form" class="space-y-6 mt-1">
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-600">Email Address</label>
+        <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email" required>
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
+        <input type="password" id="password" class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Login
+      </button>
+    </form>
+
+    <div class="mt-6 text-center">
+      <p class="text-sm text-gray-500">
+        Don't have an account? <a href="signup.html" class="text-blue-600 hover:underline">Sign up</a>
+      </p>
+      <p class="text-sm text-gray-500 mt-2">
+        Forgot your password? <a href="forgot-password.html" class="text-blue-600 hover:underline">Reset it</a>
+      </p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDpfdLyJ4rFmEgWCw900gQUWOvI9TEVvYU",
+      authDomain: "atheletehub-59ffa.firebaseapp.com",
+      projectId: "atheletehub-59ffa",
+      storageBucket: "atheletehub-59ffa.firebasestorage.app",
+      messagingSenderId: "140956597666",
+      appId: "1:140956597666:web:cbdbfff48ef76d78d8c6fb",
+      measurementId: "G-BMR5HGZM59"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const loginForm = document.getElementById('login-form');
+    const errorMessage = document.getElementById('error-message');
+
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log('Logged in as:', user.email);
+          window.location.href = 'index.html'; // Redirect to home page on success
+        })
+        .catch((error) => {
+          errorMessage.classList.remove('hidden');
+          console.log(error.message);
+        });
+    });
+  </script>
+
+</body>
+
+</html>
