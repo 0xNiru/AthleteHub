@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/login", "destination": "/loginpage.html" },
-    { "source": "/signup", "destination": "/signup.html" },
-    { "source": "/resetpass", "destination": "/forgot-password.html" }
-  ],
-  "cleanUrls": true
-}
