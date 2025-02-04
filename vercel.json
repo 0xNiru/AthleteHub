@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/loginpage", "destination": "/loginpage.html" },
+    { "source": "/signup", "destination": "/signup.html" },
+    { "source": "/reset", "destination": "/forgot-password.html" }
+  ]
+}
