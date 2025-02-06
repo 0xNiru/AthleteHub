@@ -3,19 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Athlete Hub</title>
-    <link rel="stylesheet" href="frontend/styles.css">
-    <script defer src="fronetend/script.js"></script>
+    <title>AthleteHub | Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="script.js"></script>
 </head>
-<body>
-    
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-600"> AthleteHub</span>
+                    <div class="hidden md:flex space-x-8 ml-10">
+                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-blue-600">
+                            <span class="material-icons mr-1 text-sm">dashboard</span>
+                            Dashboard
+                        </a>
+                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">
+                            <span class="material-icons mr-1 text-sm">trending_up</span>
+                            Performance
+                        </a>
+                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">
+                            <span class="material-icons mr-1 text-sm">event</span>
+                            Events
+                        </a>
+                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">
+                            <span class="material-icons mr-1 text-sm">group</span>
+                            Community
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-400 hover:text-gray-500">
+                        <span class="material-icons">notifications</span>
+                    </button>
+                    <button class="p-2 text-gray-400 hover:text-gray-500">
+                        <span class="material-icons">email</span>
+                    </button>
+                    <button class="p-2 text-gray-400 hover:text-gray-500">
+                        <span class="material-icons">logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <h1 class="text-2xl font-bold text-center mt-8"> yaha pe main dashboard hoga </h1>
+    <!-- Main Content -->
+    <main class="pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Profile Section -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <div class="flex items-center">
+                    <img src="https://i.postimg.cc/76Dw53Mp/main-qimg.webp" alt="Athlete Profile" class="rounded-full w-24 h-24 object-cover">
+                    <div class="ml-6">
+                        <h1 class="text-2xl font-bold text-gray-900">Chhota Bheem</h1>
+                        <p class="text-gray-500">Professional Boxer</p>
+                        <div class="mt-2 flex items-center">
+                            <span class="px-3 py-1 rounded-full text-sm bg-green-100 text-green-800">Active</span>
+                            <span class="ml-4 text-sm text-gray-500">Federation ID: SW123456</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Section -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-lg font-semibold mb-4">Performance Tracking</h2>
+                <canvas id="performanceChart"></canvas>
+            </div>
+
+            <!-- Events and Sponsorships Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Upcoming Events -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-lg font-semibold mb-4">Upcoming Events</h2>
+                    <div class="space-y-4">
+                        <div class="border-b pb-4">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="font-medium">Dholakpur Championship</h3>
+                                    <p class="text-sm text-gray-500">July 15, 2025</p>
+                                </div>
+                                <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="font-medium">Pehelwanpur Tournament</h3>
+                                    <p class="text-sm text-gray-500">August 2, 2025</p>
+                                </div>
+                                <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sponsorships -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-lg font-semibold mb-4">Sponsorship Opportunities</h2>
+                    <div class="space-y-4">
+                        <div class="border-b pb-4">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="font-medium">FightClub Inc.</h3>
+                                    <p class="text-sm text-gray-500">Brand Ambassador Role</p>
+                                    <p class="text-xs text-gray-400">Deadline: July 30, 2025</p>
+                                </div>
+                                <button class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="font-medium">Food Hub</h3>
+                                    <p class="text-sm text-gray-500">Laddoo Taster</p>
+                                    <p class="text-xs text-gray-400">Deadline: August 15, 2025</p>
+                                </div>
+                                <button class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    
 </body>
 </html>
