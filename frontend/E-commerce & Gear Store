@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Gear Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: white;
+            padding: 15px;
+            margin: 10px;
+            width: 250px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .price {
+            font-size: 18px;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .discount {
+            font-size: 14px;
+            color: red;
+            text-decoration: line-through;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #cart {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sports Gear Store</h1>
+
+    <div class="container">
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Football">
+            <h3>Football</h3>
+            <p class="price">$25 <span class="discount">$30</span></p>
+            <button onclick="addToCart('Football', 25)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Running Shoes">
+            <h3>Running Shoes</h3>
+            <p class="price">$50 <span class="discount">$60</span></p>
+            <button onclick="addToCart('Running Shoes', 50)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Gym Gloves">
+            <h3>Gym Gloves</h3>
+            <p class="price">$15 <span class="discount">$20</span></p>
+            <button onclick="addToCart('Gym Gloves', 15)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div id="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p><strong>Total: $<span id="total">0</span></strong></p>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(item, price) {
+            cart.push({ item, price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById("cart-items");
+            cartList.innerHTML = "";
+            cart.forEach(product => {
+                let li = document.createElement("li");
+                li.textContent = `${product.item} - $${product.price}`;
+                cartList.appendChild(li);
+            });
+            document.getElementById("total").textContent = total;
+        }
+    </script>
+
+</body>
+</html>
