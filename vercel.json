@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "frontend/",
-      "destination": "frontend/loginpage.html",
+      "source": "/",
+      "destination": "/frontend/loginpage.html",
       "permanent": true
     }
   ]
