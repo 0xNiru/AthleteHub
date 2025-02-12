@@ -25,26 +25,7 @@
                             <span class="material-icons mr-1 text-sm">trending_up</span>
                             Performance
                         </a>
-                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">
-                            <span class="material-icons mr-1 text-sm">event</span>
-                            Events
-                        </a>
-                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">
-                            <span class="material-icons mr-1 text-sm">group</span>
-                            Community
-                        </a>
                     </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <button class="p-2 text-gray-400 hover:text-gray-500">
-                        <span class="material-icons">notifications</span>
-                    </button>
-                    <button class="p-2 text-gray-400 hover:text-gray-500">
-                        <span class="material-icons">email</span>
-                    </button>
-                    <button class="p-2 text-gray-400 hover:text-gray-500">
-                        <span class="material-icons">logout</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -53,91 +34,293 @@
     <!-- Main Content -->
     <main class="pt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <!-- Profile Section -->
-            <div class="bg-white rounded-lg shadow p-6 mb-6">
-                <div class="flex items-center">
-                    <img src="https://i.postimg.cc/76Dw53Mp/main-qimg.webp" alt="Athlete Profile" class="rounded-full w-24 h-24 object-cover">
-                    <div class="ml-6">
-                        <h1 class="text-2xl font-bold text-gray-900">Chhota Bheem</h1>
-                        <p class="text-gray-500">Professional Boxer</p>
-                        <div class="mt-2 flex items-center">
-                            <span class="px-3 py-1 rounded-full text-sm bg-green-100 text-green-800">Active</span>
-                            <span class="ml-4 text-sm text-gray-500">Federation ID: SW123456</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Performance Section -->
-            <div class="bg-white rounded-lg shadow p-6 mb-6">
-                <h2 class="text-lg font-semibold mb-4">Performance Tracking</h2>
-                <canvas id="performanceChart"></canvas>
-            </div>
-
-            <!-- Events and Sponsorships Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Upcoming Events -->
-                <div class="bg-white rounded-lg shadow p-6">
-                    <h2 class="text-lg font-semibold mb-4">Upcoming Events</h2>
-                    <div class="space-y-4">
-                        <div class="border-b pb-4">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h3 class="font-medium">Dholakpur Championship</h3>
-                                    <p class="text-sm text-gray-500">July 15, 2025</p>
-                                </div>
-                                <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                        <div class="border-b pb-4">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h3 class="font-medium">Pehelwanpur Tournament</h3>
-                                    <p class="text-sm text-gray-500">August 2, 2025</p>
-                                </div>
-                                <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sponsorships -->
-                <div class="bg-white rounded-lg shadow p-6">
-                    <h2 class="text-lg font-semibold mb-4">Sponsorship Opportunities</h2>
-                    <div class="space-y-4">
-                        <div class="border-b pb-4">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h3 class="font-medium">FightClub Inc.</h3>
-                                    <p class="text-sm text-gray-500">Brand Ambassador Role</p>
-                                    <p class="text-xs text-gray-400">Deadline: July 30, 2025</p>
-                                </div>
-                                <button class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
-                                    Apply
-                                </button>
-                            </div>
-                        </div>
-                        <div class="border-b pb-4">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h3 class="font-medium">Food Hub</h3>
-                                    <p class="text-sm text-gray-500">Laddoo Taster</p>
-                                    <p class="text-xs text-gray-400">Deadline: August 15, 2025</p>
-                                </div>
-                                <button class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
-                                    Apply
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+            
+           <!-- Profile Section -->
+<div class="bg-white rounded-lg shadow p-6 mb-6 relative">
+    <div class="flex justify-between items-center">
+        <div class="flex items-center">
+            <img id="profileImage" src="https://i.postimg.cc/76Dw53Mp/main-qimg.webp" 
+                alt="Athlete Profile" class="rounded-full w-24 h-24 object-cover">
+            <div class="ml-6">
+                <h1 id="profileName" class="text-2xl font-bold text-gray-900">Chhota Bheem</h1>
+                <p id="profileRole" class="text-gray-500">Professional Boxer</p>
+                <div class="mt-2 flex items-center">
+                    <span class="px-3 py-1 rounded-full text-sm bg-green-100 text-green-800">Active</span>
+                    <span class="ml-4 text-sm text-gray-500">Federation ID: SW123456</span>
                 </div>
             </div>
         </div>
-    </main>
+        <!-- Edit Profile Button -->
+        <button onclick="openEditProfile()" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+            Edit
+        </button>
+    </div>
+</div>
+
+<!-- Edit Profile Modal -->
+<div id="editProfileModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 class="text-xl font-bold mb-4">Edit Profile</h2>
+        
+        <label class="block text-sm font-medium text-gray-700">Name</label>
+        <input id="editName" type="text" class="w-full p-2 border rounded mt-1 mb-2">
+
+        <label class="block text-sm font-medium text-gray-700">Role</label>
+        <input id="editRole" type="text" class="w-full p-2 border rounded mt-1 mb-2">
+
+        <label class="block text-sm font-medium text-gray-700">Profile Image</label>
+        <input id="editImage" type="file" accept="image/*" class="w-full p-2 border rounded mt-1 mb-4" onchange="previewImage(event)">
+        
+        <img id="preview" src="" class="w-24 h-24 object-cover rounded-full mx-auto hidden" alt="Preview">
+
+        <div class="flex justify-end mt-4">
+            <button onclick="closeEditProfile()" class="px-4 py-2 bg-gray-500 text-white rounded-md mr-2">
+                Cancel
+            </button>
+            <button onclick="saveProfile()" class="px-4 py-2 bg-blue-600 text-white rounded-md">
+                Save Changes
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Performance Stats Section -->
+<div class="bg-white rounded-lg shadow p-6 mb-6">
+    <h2 class="text-lg font-semibold mb-4">Performance Stats</h2>
+    <div class="grid grid-cols-3 gap-4 text-center">
+        <div class="p-4 bg-green-100 text-green-900 rounded-lg">
+            <h3 id="wins" class="text-2xl font-bold">15</h3>
+            <p>Wins</p>
+        </div>
+        <div class="p-4 bg-red-100 text-red-900 rounded-lg">
+            <h3 id="losses" class="text-2xl font-bold">3</h3>
+            <p>Losses</p>
+        </div>
+        <div class="p-4 bg-gray-100 text-gray-900 rounded-lg">
+            <h3 id="draws" class="text-2xl font-bold">2</h3>
+            <p>Draws</p>
+        </div>
+    </div>
+
+    <!-- Win Rate -->
+    <div class="mt-4 text-center">
+        <h3 class="text-xl font-semibold">Win Rate: <span id="winRate" class="text-blue-600">83%</span></h3>
+    </div>
+
+    <!-- Performance Chart -->
+    <canvas id="performanceChart" class="mt-6"></canvas>
+</div>
+
+<!-- Fitness Tracking Section -->
+<div class="bg-white rounded-lg shadow p-6 mb-6">
+    <h2 class="text-lg font-semibold mb-4">Fitness Tracking</h2>
+    <div class="grid grid-cols-3 gap-4 text-center">
+        <div class="p-4 bg-blue-100 text-blue-900 rounded-lg">
+            <h3 id="steps" class="text-2xl font-bold">10,345</h3>
+            <p>Steps</p>
+        </div>
+        <div class="p-4 bg-green-100 text-green-900 rounded-lg">
+            <h3 id="heartRate" class="text-2xl font-bold">78 bpm</h3>
+            <p>Heart Rate</p>
+        </div>
+        <div class="p-4 bg-red-100 text-red-900 rounded-lg">
+            <h3 id="calories" class="text-2xl font-bold">520 kcal</h3>
+            <p>Calories Burned</p>
+        </div>
+    </div>
+    <canvas id="fitnessChart" class="mt-6"></canvas>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Performance Chart
+        const performanceCtx = document.getElementById("performanceChart").getContext("2d");
+        const matchResults = [5, 2, 4, 3, 6, 1, 4];
+        const matches = ["Match 1", "Match 2", "Match 3", "Match 4", "Match 5", "Match 6", "Match 7"];
+
+        // Calculate Win Rate
+        const wins = 15, losses = 3, draws = 2;
+        const winRate = ((wins / (wins + losses + draws)) * 100).toFixed(2);
+        document.getElementById("winRate").innerText = `${winRate}%`;
+
+        new Chart(performanceCtx, {
+            type: "bar",
+            data: {
+                labels: matches,
+                datasets: [{
+                    label: "Wins",
+                    data: matchResults,
+                    backgroundColor: "rgba(54, 162, 235, 0.6)",
+                    borderColor: "rgba(54, 162, 235, 1)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // Fitness Chart
+        const fitnessCtx = document.getElementById("fitnessChart").getContext("2d");
+        const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+        const stepData = [8000, 9500, 12000, 11000, 10500, 13000, 12500];
+
+        new Chart(fitnessCtx, {
+            type: "line",
+            data: {
+                labels: days,
+                datasets: [{
+                    label: "Steps Taken",
+                    data: stepData,
+                    backgroundColor: "rgba(0, 123, 255, 0.2)",
+                    borderColor: "#007bff",
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    });
+</script>
+
+
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-lg font-semibold mb-4">🏋️ Injury Prediction & Fitness Plan</h2>
+            
+                <label for="symptoms" class="block text-sm font-medium text-gray-700">Describe Your Symptoms:</label>
+                <textarea id="symptoms" class="w-full p-2 border rounded mt-2" placeholder="e.g., Knee pain after running..."></textarea>
+            
+                <button onclick="predictInjury()" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                    Get AI Insights
+                </button>
+            
+                <div id="aiResponse" class="mt-4 p-4 bg-gray-100 rounded hidden">
+                    <h3 class="text-lg font-semibold">📊 AI Predictions & Insights:</h3>
+                    <p id="predictionText" class="text-gray-700 mt-2"></p>
+                </div>
+            </div>
+            
+            <script>
+                async function predictInjury() {
+                    const symptoms = document.getElementById("symptoms").value;
+                    if (!symptoms) {
+                        alert("Please enter your symptoms!");
+                        return;
+                    }
+            
+                    document.getElementById("aiResponse").classList.remove("hidden");
+                    document.getElementById("predictionText").innerText = "⏳ Analyzing with AI...";
+            
+                    try {
+                        const response = await fetch("http://127.0.0.1:5000/predict", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ symptoms })
+                        });
+            
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+            
+                        const data = await response.json();
+                        document.getElementById("predictionText").innerText = data.prediction;
+                    } catch (error) {
+                        console.error('Error:', error);
+                        document.getElementById("predictionText").innerText = 
+                            "❌ Error: Could not connect to the AI service. Please try again later.";
+                    }
+                }
+            </script>
+            
+
+
+
+<!-- Upcoming Events Section -->
+<div class="bg-white rounded-lg shadow p-6 relative">
+    <h2 class="text-lg font-semibold mb-4">Upcoming Events</h2>
+    
+    <!-- Slideshow Container -->
+    <div class="relative overflow-hidden">
+        <div id="eventSlider" class="flex transition-transform duration-500">
+            <!-- Event 1 -->
+            <div class="event-slide min-w-full p-4">
+                <h3 class="text-xl font-medium">Dholakpur Championship</h3>
+                <p class="text-gray-500">📅 July 15, 2025 | 🏟️ Dholakpur Stadium</p>
+                <button class="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700" onclick="registerEvent('Dholakpur Championship')">
+                    Register Now
+                </button>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="event-slide min-w-full p-4">
+                <h3 class="text-xl font-medium">Pehelwanpur Tournament</h3>
+                <p class="text-gray-500">📅 August 2, 2025 | 🏟️ Pehelwanpur Arena</p>
+                <button class="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700" onclick="registerEvent('Pehelwanpur Tournament')">
+                    Register Now
+                </button>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="event-slide min-w-full p-4">
+                <h3 class="text-xl font-medium">Indian Open Boxing League</h3>
+                <p class="text-gray-500">📅 September 10, 2025 | 🏟️ Mumbai Sports Complex</p>
+                <button class="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700" onclick="registerEvent('Indian Open Boxing League')">
+                    Register Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button onclick="prevSlide()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full hover:bg-gray-300">
+        ❮
+    </button>
+    <button onclick="nextSlide()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full hover:bg-gray-300">
+        ❯
+    </button>
+</div>
+
+<script>
+    let currentIndex = 0;
+
+    function updateSlide() {
+        document.getElementById("eventSlider").style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+        const totalSlides = document.querySelectorAll(".event-slide").length;
+        if (currentIndex < totalSlides - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Loop back to first slide
+        }
+        updateSlide();
+    }
+
+    function prevSlide() {
+        const totalSlides = document.querySelectorAll(".event-slide").length;
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = totalSlides - 1; // Loop back to last slide
+        }
+        updateSlide();
+    }
+
+    function registerEvent(eventName) {
+        alert(`✅ Registered for ${eventName}!`);
+    }
+</script>
+
 
 </body>
 </html>
