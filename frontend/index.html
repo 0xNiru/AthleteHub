@@ -133,7 +133,12 @@
     <canvas id="fitnessChart" class="mt-6"></canvas>
 </div>
 
-<script>
+<script type="module">
+    import { checkAuth } from './auth.js';
+    
+    // Check authentication when page loads
+    checkAuth();
+    
     document.addEventListener('DOMContentLoaded', function() {
         // Performance Chart
         const performanceCtx = document.getElementById("performanceChart").getContext("2d");

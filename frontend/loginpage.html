@@ -37,6 +37,9 @@
     </form>
 
     <div class="mt-6 text-center">
+      <div id="error-message" class="hidden text-red-500 text-sm mb-4">
+        Invalid email or password. Please try again.
+      </div>
       <p class="text-sm text-gray-500">
         Don't have an account? <a href="signup.html" class="text-blue-600 hover:underline">Sign up</a>
       </p>
@@ -49,6 +52,7 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+    import { checkAuth } from './auth.js';
 
     const firebaseConfig = {
       apiKey: "AIzaSyDpfdLyJ4rFmEgWCw900gQUWOvI9TEVvYU",
@@ -64,7 +68,9 @@
     const auth = getAuth(app);
 
     const loginForm = document.getElementById('login-form');
-    const errorMessage = document.getElementById('error-message');
+
+    // Add this line to check auth state when page loads
+    checkAuth();
 
     loginForm.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -75,10 +81,12 @@
         .then((userCredential) => {
           const user = userCredential.user;
           console.log('Logged in as:', user.email);
-          window.location.href = 'index.html'; // Redirect to home page on success
+          window.location.href = 'index.html';
         })
         .catch((error) => {
-          errorMessage.classList.remove('hidden');
+          const errorDiv = document.getElementById('error-message');
+          errorDiv.classList.remove('hidden');
+          errorDiv.textContent = error.message;
           console.log(error.message);
         });
     });
