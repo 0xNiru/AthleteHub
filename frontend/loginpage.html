@@ -54,41 +54,43 @@
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
     import { checkAuth } from './auth.js';
 
+    // Your Firebase configuration
     const firebaseConfig = {
-      apiKey: "AIzaSyDpfdLyJ4rFmEgWCw900gQUWOvI9TEVvYU",
-      authDomain: "atheletehub-59ffa.firebaseapp.com",
-      projectId: "atheletehub-59ffa",
-      storageBucket: "atheletehub-59ffa.firebasestorage.app",
-      messagingSenderId: "140956597666",
-      appId: "1:140956597666:web:cbdbfff48ef76d78d8c6fb",
-      measurementId: "G-BMR5HGZM59"
+        // Add your Firebase config here - SAME AS IN auth.js
+        apiKey: "your-api-key",
+        authDomain: "your-auth-domain",
+        projectId: "your-project-id",
+        storageBucket: "your-storage-bucket",
+        messagingSenderId: "your-messaging-sender-id",
+        appId: "your-app-id"
     };
 
+    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    const loginForm = document.getElementById('login-form');
-
-    // Add this line to check auth state when page loads
+    // Check auth state when page loads
     checkAuth();
 
-    loginForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+    // Get the login form
+    const loginForm = document.getElementById('login-form');
 
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          console.log('Logged in as:', user.email);
-          window.location.href = 'index.html';
-        })
-        .catch((error) => {
-          const errorDiv = document.getElementById('error-message');
-          errorDiv.classList.remove('hidden');
-          errorDiv.textContent = error.message;
-          console.log(error.message);
-        });
+    loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                console.log('Login successful');
+                window.location.href = '/index.html';
+            })
+            .catch((error) => {
+                console.error('Login error:', error);
+                const errorDiv = document.getElementById('error-message');
+                errorDiv.classList.remove('hidden');
+                errorDiv.textContent = error.message;
+            });
     });
   </script>
 

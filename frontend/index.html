@@ -134,8 +134,25 @@
 </div>
 
 <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
     import { checkAuth } from './auth.js';
-    
+
+    // Your Firebase configuration
+    const firebaseConfig = {
+        // Add your Firebase config here - SAME AS IN auth.js
+        apiKey: "your-api-key",
+        authDomain: "your-auth-domain",
+        projectId: "your-project-id",
+        storageBucket: "your-storage-bucket",
+        messagingSenderId: "your-messaging-sender-id",
+        appId: "your-app-id"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
     // Check authentication when page loads
     checkAuth();
     
