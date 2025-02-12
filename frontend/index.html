@@ -148,7 +148,7 @@
         messagingSenderId: "140956597666",
         appId: "1:140956597666:web:cbdbfff48ef76d78d8c6fb",
         measurementId: "G-BMR5HGZM59"
-      };
+    };
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -156,7 +156,10 @@
 
     // Check authentication when page loads
     checkAuth();
-    
+</script>
+
+<!-- Move Chart.js initialization to a separate script tag -->
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         // Performance Chart
         const performanceCtx = document.getElementById("performanceChart").getContext("2d");

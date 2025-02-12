@@ -14,9 +14,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 function checkAuth() {
-    const auth = getAuth();
     // Get the current page path
     const currentPath = window.location.pathname;
     
@@ -39,4 +39,4 @@ function checkAuth() {
     });
 }
 
-export { checkAuth }; 
+export { checkAuth };
