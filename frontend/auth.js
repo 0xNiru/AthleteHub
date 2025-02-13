@@ -3,38 +3,35 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
 
 // Your Firebase configuration
 const firebaseConfig = {
-    // Add your Firebase config here
-    apiKey: "your-api-key",
-    authDomain: "your-auth-domain",
-    projectId: "your-project-id",
-    storageBucket: "your-storage-bucket",
-    messagingSenderId: "your-messaging-sender-id",
-    appId: "your-app-id"
-};
+    apiKey: "AIzaSyDpfdLyJ4rFmEgWCw900gQUWOvI9TEVvYU",
+    authDomain: "atheletehub-59ffa.firebaseapp.com",
+    projectId: "atheletehub-59ffa",
+    storageBucket: "atheletehub-59ffa.firebasestorage.app",
+    messagingSenderId: "140956597666",
+    appId: "1:140956597666:web:cbdbfff48ef76d78d8c6fb",
+    measurementId: "G-BMR5HGZM59"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 function checkAuth() {
-    // Get the current page path
     const currentPath = window.location.pathname;
     
-    // List of public pages that don't require authentication
-    const publicPages = ['/loginpage.html', '/signup.html', '/forgot-password.html'];
+    // Update these paths
+    const publicPages = ['/frontend/loginpage.html', '/frontend/signup.html', '/frontend/forgot-password.html'];
     
     onAuthStateChanged(auth, (user) => {
-        console.log('Current user:', user); // Debug log
-        console.log('Current path:', currentPath); // Debug log
+        console.log('Current user:', user);
+        console.log('Current path:', currentPath);
         
         if (!user && !publicPages.includes(currentPath)) {
-            // User is not logged in and trying to access a protected page
-            console.log('Redirecting to login page...'); // Debug log
-            window.location.href = '/loginpage.html';
+            console.log('Redirecting to login page...');
+            window.location.href = '/frontend/loginpage.html';
         } else if (user && publicPages.includes(currentPath)) {
-            // User is logged in but on a public page (like login)
-            console.log('Redirecting to index...'); // Debug log
-            window.location.href = '/index.html';
+            console.log('Redirecting to index...');
+            window.location.href = '/frontend/index.html';
         }
     });
 }

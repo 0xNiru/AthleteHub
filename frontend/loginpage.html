@@ -5,8 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - AthleteHub</title>
-  <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -49,6 +47,7 @@
     </div>
   </div>
 
+  <!-- Firebase Scripts -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
@@ -67,7 +66,7 @@
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+    const auth = getAuth();
 
     // Check auth state when page loads
     checkAuth();
@@ -75,22 +74,24 @@
     // Get the login form
     const loginForm = document.getElementById('login-form');
 
-    loginForm.addEventListener('submit', function (e) {
+    loginForm.addEventListener('submit', async function (e) {
         e.preventDefault();
+        
+        const errorDiv = document.getElementById('error-message');
+        errorDiv.classList.add('hidden');
+        
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                console.log('Login successful');
-                window.location.href = '/index.html';
-            })
-            .catch((error) => {
-                console.error('Login error:', error);
-                const errorDiv = document.getElementById('error-message');
-                errorDiv.classList.remove('hidden');
-                errorDiv.textContent = error.message;
-            });
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log('Login successful:', userCredential.user.email);
+            window.location.href = '/frontend/index.html';
+        } catch (error) {
+            console.error('Login error:', error);
+            errorDiv.classList.remove('hidden');
+            errorDiv.textContent = error.message;
+        }
     });
   </script>
 
