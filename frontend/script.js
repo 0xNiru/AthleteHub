@@ -74,7 +74,9 @@ async function predictInjury() {
     document.getElementById("predictionText").innerText = "⏳ Analyzing with AI...";
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/predict", {
+        // Use your deployed API URL instead of localhost
+        const API_URL = "https://your-backend-url.com/predict";  // Update this with your actual backend URL
+        const response = await fetch(API_URL, {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",

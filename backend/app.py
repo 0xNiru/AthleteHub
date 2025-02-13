@@ -5,7 +5,18 @@ import google.generativeai as genai
 import logging
 
 app = Flask(__name__)
-CORS(app)
+
+# Update CORS configuration to allow requests from your frontend domain
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "https://athletehub.okayniraj.me",  # Your production domain
+            "http://localhost:3000",            # Local development domain (if needed)
+        ],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"]
+    }
+})
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
