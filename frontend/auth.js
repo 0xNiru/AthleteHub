@@ -19,8 +19,8 @@ const auth = getAuth(app);
 function checkAuth() {
     const currentPath = window.location.pathname;
     
-    // Update these paths
-    const publicPages = ['/frontend/loginpage.html', '/frontend/signup.html', '/frontend/forgot-password.html'];
+    // Update these paths to remove /frontend/
+    const publicPages = ['/loginpage.html', '/signup.html', '/forgot-password.html'];
     
     onAuthStateChanged(auth, (user) => {
         console.log('Current user:', user);
@@ -28,10 +28,10 @@ function checkAuth() {
         
         if (!user && !publicPages.includes(currentPath)) {
             console.log('Redirecting to login page...');
-            window.location.href = '/frontend/loginpage.html';
+            window.location.href = '/loginpage.html';  // Remove /frontend/
         } else if (user && publicPages.includes(currentPath)) {
             console.log('Redirecting to index...');
-            window.location.href = '/frontend/index.html';
+            window.location.href = '/index.html';  // Remove /frontend/
         }
     });
 }
