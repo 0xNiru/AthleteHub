@@ -86,7 +86,7 @@
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             console.log('Login successful:', userCredential.user.email);
-            window.location.href = '/frontend/index.html';
+            window.location.href = '/';
         } catch (error) {
             console.error('Login error:', error);
             errorDiv.classList.remove('hidden');
