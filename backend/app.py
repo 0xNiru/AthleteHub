@@ -15,7 +15,7 @@ API_KEY = "AIzaSyCBVlvUZNgEsbq2uNHPIarHCX48hlfz8T8"
 genai.configure(api_key=API_KEY)
 
 @app.route('/predict', methods=['POST'])
-def predict_injury():
+def predict():
     try:
         app.logger.info("Received prediction request")
         data = request.get_json()
@@ -30,11 +30,24 @@ def predict_injury():
         app.logger.debug("Initializing Gemini model")
         model = genai.GenerativeModel('gemini-pro')
         
-        prompt = f"""
-        A professional athlete is experiencing the following symptoms: {symptoms}.
-        1. Predict possible injuries.
-        2. Suggest a recovery plan.
-        3. Provide a fitness improvement strategy.
+        # Format the prompt to get a cleaner response
+        prompt = f"""Based on the symptoms: {symptoms}
+        
+        Please provide an analysis in the following format:
+
+        AI Predictions & Insights:
+
+        1. Possible Injuries
+        - List potential injuries
+        - Use bullet points without asterisks
+
+        2. Recovery Plan
+        - List recovery steps
+        - Use bullet points without asterisks
+
+        3. Fitness Improvement Strategy
+        - List improvement strategies
+        - Use bullet points without asterisks
         """
 
         app.logger.debug("Sending request to Gemini API")
@@ -43,15 +56,17 @@ def predict_injury():
         if response and response.text:
             app.logger.debug("Successfully received response from Gemini")
             app.logger.info(f"Prediction result: {response.text}")
-            return jsonify({"prediction": response.text})
+            # Clean up the response
+            prediction = response.text.replace('*', '•')  # Replace asterisks with bullet points
+            prediction = prediction.replace('•', '-')     # Or replace with simple dashes
+            return jsonify({"prediction": prediction})
         else:
             app.logger.error("Empty response from Gemini API")
             return jsonify({"error": "Empty response from AI model"}), 500
 
     except Exception as e:
-        app.logger.error(f"Error in predict_injury: {str(e)}", exc_info=True)
+        app.logger.error(f"Error in prediction: {str(e)}", exc_info=True)
         return jsonify({"error": f"Server error: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(debug=True)
