@@ -98,3 +98,34 @@ async function predictInjury() {
             `❌ Error: ${error.message}. Please check the console for more details.`;
     }
 }
+
+document.getElementById('financialPlanForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = {
+        sport: document.getElementById('sport').value,
+        level: document.getElementById('level').value,
+        monthly_budget: document.getElementById('monthly_budget').value,
+        goals: document.getElementById('goals').value
+    };
+
+    document.getElementById('financialPlanResponse').classList.remove('hidden');
+    document.getElementById('planText').innerHTML = "Generating your financial plan...";
+
+    try {
+        const response = await fetch('YOUR_BACKEND_URL/financial-plan', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+        document.getElementById('planText').innerHTML = data.financial_plan;
+    } catch (error) {
+        document.getElementById('planText').innerHTML = 
+            "Error generating financial plan. Please try again.";
+        console.error('Error:', error);
+    }
+});
