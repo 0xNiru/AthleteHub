@@ -16,19 +16,17 @@ genai.configure(api_key=API_KEY)
 @app.route('/predict', methods=['POST'])
 def predict_injury():
     try:
-        
-        logger.debug("Received prediction request")
-        
+        app.logger.info("Received prediction request")
         data = request.get_json()
         symptoms = data.get("symptoms", "")
         
-        logger.debug(f"Symptoms received: {symptoms}")
+        app.logger.info(f"Symptoms received: {symptoms}")
 
         if not symptoms:
             return jsonify({"error": "No symptoms provided"}), 400
 
         # Initialize model
-        logger.debug("Initializing Gemini model")
+        app.logger.debug("Initializing Gemini model")
         model = genai.GenerativeModel('gemini-pro')
         
         prompt = f"""
@@ -38,18 +36,19 @@ def predict_injury():
         3. Provide a fitness improvement strategy.
         """
 
-        logger.debug("Sending request to Gemini API")
+        app.logger.debug("Sending request to Gemini API")
         response = model.generate_content(prompt)
         
         if response and response.text:
-            logger.debug("Successfully received response from Gemini")
+            app.logger.debug("Successfully received response from Gemini")
+            app.logger.info(f"Prediction result: {response.text}")
             return jsonify({"prediction": response.text})
         else:
-            logger.error("Empty response from Gemini API")
+            app.logger.error("Empty response from Gemini API")
             return jsonify({"error": "Empty response from AI model"}), 500
 
     except Exception as e:
-        logger.error(f"Error in predict_injury: {str(e)}", exc_info=True)
+        app.logger.error(f"Error in predict_injury: {str(e)}", exc_info=True)
         return jsonify({"error": f"Server error: {str(e)}"}), 500
 
 if __name__ == '__main__':
