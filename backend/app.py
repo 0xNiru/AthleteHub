@@ -4,6 +4,7 @@ from flask_cors import CORS
 import google.generativeai as genai
 import logging
 import os
+from google.generativeai import GenerativeModel  # Make sure this import is present
 
 app = Flask(__name__)
 CORS(app)
@@ -69,17 +70,23 @@ def predict_injury():
 @app.route('/financial-plan', methods=['POST'])
 def create_financial_plan():
     try:
+        logger.info("Received financial plan request")
         data = request.get_json()
-        sport = data.get('sport')
-        level = data.get('level')  # amateur, semi-pro, professional
-        budget = data.get('monthly_budget')
-        goals = data.get('goals')
+        logger.info(f"Request data: {data}")
 
-        prompt = f"""Create a detailed sports financial plan for a {level} athlete in {sport} 
-        with a monthly budget of {budget}. Their goals are: {goals}
+        # Make sure all required fields are present
+        required_fields = ['sport', 'level', 'monthly_budget', 'goals']
+        for field in required_fields:
+            if not data.get(field):
+                raise ValueError(f"Missing required field: {field}")
+
+        # Initialize the model (make sure this matches how you initialized it for predictions)
+        model = GenerativeModel('gemini-pro')
+        
+        prompt = f"""Create a detailed sports financial plan for a {data['level']} athlete in {data['sport']} 
+        with a monthly budget of {data['monthly_budget']}. Their goals are: {data['goals']}
 
         Please provide a comprehensive plan covering:
-        and dont use any asterisks or any other formatting.
 
         1. Budget Breakdown
         - Essential equipment costs
@@ -114,12 +121,17 @@ def create_financial_plan():
         - Long-term financial planning
         """
 
+        logger.info("Sending request to Gemini API")
         response = model.generate_content(prompt)
+        logger.info("Received response from Gemini API")
+        
         financial_plan = response.text
+        logger.info("Successfully generated financial plan")
 
         return jsonify({"financial_plan": financial_plan})
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        logger.error(f"Error in financial plan generation: {str(e)}")
+        return jsonify({"error": f"Failed to generate financial plan: {str(e)}"}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

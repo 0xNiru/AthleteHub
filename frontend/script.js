@@ -109,23 +109,46 @@ document.getElementById('financialPlanForm').addEventListener('submit', async fu
         goals: document.getElementById('goals').value
     };
 
+    // Validate form data
+    if (!formData.sport || !formData.level || !formData.monthly_budget || !formData.goals) {
+        alert('Please fill in all fields');
+        return;
+    }
+
     document.getElementById('financialPlanResponse').classList.remove('hidden');
     document.getElementById('planText').innerHTML = "Generating your financial plan...";
 
     try {
-        const response = await fetch('YOUR_BACKEND_URL/financial-plan', {
+        console.log('Sending request with data:', formData);
+        const response = await fetch('https://athletehub.onrender.com/financial-plan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify(formData)
         });
 
-        const data = await response.json();
+        console.log('Response status:', response.status);
+        const responseText = await response.text();
+        console.log('Raw response:', responseText);
+
+        let data;
+        try {
+            data = JSON.parse(responseText);
+        } catch (e) {
+            console.error('Failed to parse JSON:', e);
+            throw new Error('Invalid response from server');
+        }
+
+        if (!response.ok) {
+            throw new Error(data.error || 'Failed to generate financial plan');
+        }
+
         document.getElementById('planText').innerHTML = data.financial_plan;
     } catch (error) {
+        console.error('Error details:', error);
         document.getElementById('planText').innerHTML = 
-            "Error generating financial plan. Please try again.";
-        console.error('Error:', error);
+            `Error generating financial plan: ${error.message}. Please try again.`;
     }
 });
