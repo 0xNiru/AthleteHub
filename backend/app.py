@@ -12,7 +12,9 @@ CORS(app)
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-API_KEY = "AIzaSyCBVlvUZNgEsbq2uNHPIarHCX48hlfz8T8"  
+API_KEY = os.environ.get("GEMINI_API_KEY")
+if not API_KEY:
+    raise ValueError("GEMINI_API_KEY environment variable is not set")
 genai.configure(api_key=API_KEY)
 
 @app.route('/predict', methods=['POST'])
@@ -134,4 +136,6 @@ def create_financial_plan():
         return jsonify({"error": f"Failed to generate financial plan: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Update port and host for production deployment
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
