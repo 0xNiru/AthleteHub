@@ -75,7 +75,7 @@ async function predictInjury() {
 
     try {
         // Use your deployed API URL instead of localhost
-        const API_URL = "https://your-backend-url.com/predict";  // Update this with your actual backend URL
+        const API_URL = "athletehub-production.up.railway.app/predict";  // Update this with your actual backend URL
         const response = await fetch(API_URL, {
             method: "POST",
             headers: { 
@@ -120,7 +120,7 @@ document.getElementById('financialPlanForm').addEventListener('submit', async fu
 
     try {
         console.log('Sending request with data:', formData);
-        const response = await fetch('https://athletehub.onrender.com/financial-plan', {
+        const response = await fetch('athletehub-production.up.railway.app/financial-plan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
