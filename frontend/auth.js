@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
-// Your Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDpfdLyJ4rFmEgWCw900gQUWOvI9TEVvYU",
     authDomain: "atheletehub-59ffa.firebaseapp.com",
@@ -12,14 +11,13 @@ const firebaseConfig = {
     measurementId: "G-BMR5HGZM59"
   };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 function checkAuth() {
     const currentPath = window.location.pathname;
     
-    // Update these paths to remove /frontend/
+    
     const publicPages = ['/loginpage.html', '/signup.html', '/forgot-password.html'];
     
     onAuthStateChanged(auth, (user) => {
@@ -28,10 +26,10 @@ function checkAuth() {
         
         if (!user && !publicPages.includes(currentPath)) {
             console.log('Redirecting to login page...');
-            window.location.href = '/loginpage.html';  // Remove /frontend/
+            window.location.href = '/loginpage.html';  
         } else if (user && publicPages.includes(currentPath)) {
             console.log('Redirecting to index...');
-            window.location.href = '/index.html';  // Remove /frontend/
+            window.location.href = '/index.html';  
         }
     });
 }
