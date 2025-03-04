@@ -9,7 +9,7 @@ const firebaseConfig = {
     messagingSenderId: "140956597666",
     appId: "1:140956597666:web:cbdbfff48ef76d78d8c6fb",
     measurementId: "G-BMR5HGZM59"
-  };
+};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -17,7 +17,7 @@ const auth = getAuth(app);
 function checkAuth() {
     const currentPath = window.location.pathname;
     
-    
+    // Define public pages that don't require authentication
     const publicPages = ['/loginpage.html', '/signup.html', '/forgot-password.html'];
     
     onAuthStateChanged(auth, (user) => {

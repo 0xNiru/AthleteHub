@@ -6,30 +6,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - AthleteHub</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            },
+            secondary: {
+              100: '#f1f5f9',
+              300: '#cbd5e1',
+              500: '#64748b',
+              700: '#334155',
+              900: '#0f172a',
+            },
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-gray-50 flex justify-center items-center h-screen">
+<body class="bg-secondary-100 flex justify-center items-center min-h-screen font-[Inter]">
 
   <!-- Main Login Container -->
-  <div class="bg-white shadow-lg rounded-lg p-8 w-full sm:w-96 max-w-md">
+  <div class="bg-white shadow-lg rounded-lg p-8 w-full sm:w-96 max-w-md mx-4">
     <div class="text-center">
-      <img src="https://i.postimg.cc/MT4cg14w/our-company-name-is-Athlete-Hub-it-should-show-an-athlete-removebg-preview-1.png" alt="AthleteHub Logo" class="mx-auto mb-1 w-32 h-auto">
+      <img src="https://i.postimg.cc/MT4cg14w/our-company-name-is-Athlete-Hub-it-should-show-an-athlete-removebg-preview-1.png" alt="AthleteHub Logo" class="mx-auto mb-4 w-32 h-auto">
     </div>
-    <h2 class="text-xl font-bold text-center mb-4">Login into Account</h2>
+    <h2 class="text-2xl font-bold text-center mb-6 text-secondary-900">Login to Your Account</h2>
 
     <!-- Login Form -->
     <form id="login-form" class="space-y-6 mt-1">
       <div>
-        <label for="email" class="block text-sm font-medium text-gray-600">Email Address</label>
-        <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email" required>
+        <label for="email" class="block text-sm font-medium text-secondary-700">Email Address</label>
+        <input type="email" id="email" class="w-full p-3 border border-secondary-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500" placeholder="Enter your email" required>
       </div>
 
       <div>
-        <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-        <input type="password" id="password" class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password" required>
+        <label for="password" class="block text-sm font-medium text-secondary-700">Password</label>
+        <input type="password" id="password" class="w-full p-3 border border-secondary-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500" placeholder="Enter your password" required>
       </div>
 
-      <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <button type="submit" class="w-full py-3 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-500">
         Login
       </button>
     </form>
@@ -38,11 +63,11 @@
       <div id="error-message" class="hidden text-red-500 text-sm mb-4">
         Invalid email or password. Please try again.
       </div>
-      <p class="text-sm text-gray-500">
-        Don't have an account? <a href="signup.html" class="text-blue-600 hover:underline">Sign up</a>
+      <p class="text-sm text-secondary-500">
+        Don't have an account? <a href="signup.html" class="text-primary-600 hover:underline">Sign up</a>
       </p>
-      <p class="text-sm text-gray-500 mt-2">
-        Forgot your password? <a href="forgot-password.html" class="text-blue-600 hover:underline">Reset it</a>
+      <p class="text-sm text-secondary-500 mt-2">
+        Forgot your password? <a href="forgot-password.html" class="text-primary-600 hover:underline">Reset it</a>
       </p>
     </div>
   </div>
