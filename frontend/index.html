@@ -428,7 +428,7 @@
     
             try {
                 console.log("Sending request with symptoms:", symptoms);
-                const response = await fetch("https://athletehub.onrender.com/predict", {
+                const response = await fetch("https://athletehub-production.up.railway.app/predict", {
                     method: "POST",
                     headers: { 
                         "Content-Type": "application/json",
@@ -486,7 +486,7 @@
 
                 try {
                     console.log('Sending request with data:', formData);
-                    const response = await fetch('https://athletehub.onrender.com/financial-plan', {
+                    const response = await fetch('https://athletehub-production.up.railway.app/financial-plan', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
