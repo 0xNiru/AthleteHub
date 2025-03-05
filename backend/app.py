@@ -35,10 +35,10 @@ def predict_injury():
         model = genai.GenerativeModel('gemini-2.0-flash')
 
         prompt = f"""Based on the symptoms: {symptoms}
-
-        **1. Possible Injuries**  
-        **2. Recovery Plan**  
-        **3. Fitness Improvement Strategy**  
+         act like a responsible doctor , no nonsense , to the point and concise response
+        1. Possible Injuries
+        2. Recovery Plan
+        3. Fitness Improvement Strategy  
         """
 
         app.logger.info("Sending request to Gemini API")
