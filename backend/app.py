@@ -33,25 +33,13 @@ def predict_injury():
         app.logger.debug("Initializing Gemini model")
         model = genai.GenerativeModel('gemini-2.0-flash')
         
-        # Format the prompt to get a cleaner response
-        prompt = f"""Based on the symptoms: {symptoms}
         
-        Please provide an analysis in the following format:
-        remember to use proper formatting while generating the response.
-
-        AI Predictions & Insights:
+        prompt = f"""Based on the symptoms: {symptoms}
 
         1. Possible Injuries
-        - List potential injuries
-        - Use bullet points without asterisks
-
         2. Recovery Plan
-        - List recovery steps
-        - Use bullet points without asterisks
-
         3. Fitness Improvement Strategy
-        - List improvement strategies
-        - Use bullet points without asterisks
+       
         """
 
         app.logger.debug("Sending request to Gemini API")
@@ -82,45 +70,20 @@ def create_financial_plan():
             if not data.get(field):
                 raise ValueError(f"Missing required field: {field}")
 
-        # Initialize the model (make sure this matches how you initialized it for predictions)
+        
         model = GenerativeModel('gemini-2.0-flash')
         
         prompt = f"""Create a detailed sports financial plan for a {data['level']} athlete in {data['sport']} 
         with a monthly budget of {data['monthly_budget']}. Their goals are: {data['goals']}
 
-        Please provide a comprehensive plan covering:
+         provide a comprehensive plan covering:
 
         1. Budget Breakdown
-        - Essential equipment costs
-        - Training expenses
-        - Competition fees
-        - Travel costs
-        - Nutrition budget
-        - Medical/Insurance costs
-
         2. Investment Strategies
-        - Short-term savings for upcoming competitions
-        - Long-term career planning
-        - Emergency fund recommendations
-        - Insurance considerations
-
         3. Revenue Opportunities
-        - Potential sponsorship avenues
-        - Competition prize money
-        - Coaching opportunities
-        - Brand building suggestions
-
         4. Cost-Saving Tips
-        - Equipment maintenance
-        - Group training options
-        - Off-season planning
-        - Discount programs
-
         5. Financial Milestones
-        - 3-month goals
-        - 6-month targets
-        - 1-year objectives
-        - Long-term financial planning
+        
         """
 
         logger.info("Sending request to Gemini API")
