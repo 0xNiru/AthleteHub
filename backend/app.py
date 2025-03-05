@@ -31,7 +31,7 @@ def predict_injury():
 
         # Initialize model
         app.logger.debug("Initializing Gemini model")
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-2.0-flash')
         
         # Format the prompt to get a cleaner response
         prompt = f"""Based on the symptoms: {symptoms}
@@ -83,7 +83,7 @@ def create_financial_plan():
                 raise ValueError(f"Missing required field: {field}")
 
         # Initialize the model (make sure this matches how you initialized it for predictions)
-        model = GenerativeModel('gemini-pro')
+        model = GenerativeModel('gemini-2.0-flash')
         
         prompt = f"""Create a detailed sports financial plan for a {data['level']} athlete in {data['sport']} 
         with a monthly budget of {data['monthly_budget']}. Their goals are: {data['goals']}
