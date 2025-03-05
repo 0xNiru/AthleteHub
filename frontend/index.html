@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | AthleteHub</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -416,7 +418,7 @@
         }
 
         // Injury prediction function
-        async function predictInjury() {
+       /* async function predictInjury() {
             const symptoms = document.getElementById("symptoms").value;
             if (!symptoms) {
                 alert("Please enter your symptoms!");
@@ -518,7 +520,89 @@
                         `Error generating financial plan: ${error.message}. Please try again.`;
                 }
             });
+        }); */ 
+
+        // Injury prediction function
+async function predictInjury() {
+    const symptoms = document.getElementById("symptoms").value;
+    if (!symptoms) {
+        alert("Please enter your symptoms!");
+        return;
+    }
+
+    document.getElementById("aiResponse").classList.remove("hidden");
+    document.getElementById("predictionText").innerText = "⏳ Analyzing with AI...";
+
+    try {
+        const response = await fetch("https://athletehub-production.up.railway.app/predict", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({ symptoms })
         });
+
+        const responseText = await response.text();
+        let data = JSON.parse(responseText);
+
+        if (!response.ok) {
+            throw new Error(`Server error: ${data.error || response.status}`);
+        }
+
+        // ✅ Use `marked.parse()` for better Markdown formatting
+        document.getElementById("predictionText").innerHTML = marked.parse(data.prediction);
+    } catch (error) {
+        document.getElementById("predictionText").innerText = `❌ Error: ${error.message}`;
+    }
+}
+
+// Financial plan handler
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('financialPlanForm');
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault(); 
+
+        const formData = {
+            sport: document.getElementById('sport').value,
+            level: document.getElementById('level').value,
+            monthly_budget: document.getElementById('monthly_budget').value,
+            goals: document.getElementById('goals').value
+        };
+
+        if (!formData.sport || !formData.level || !formData.monthly_budget || !formData.goals) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        document.getElementById('financialPlanResponse').classList.remove('hidden');
+        document.getElementById('planText').innerText = "Generating your financial plan...";
+
+        try {
+            const response = await fetch('https://athletehub-production.up.railway.app/financial-plan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const responseText = await response.text();
+            let data = JSON.parse(responseText);
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to generate financial plan');
+            }
+
+            // ✅ Use `marked.parse()` here as well
+            document.getElementById('planText').innerHTML = marked.parse(data.financial_plan);
+        } catch (error) {
+            document.getElementById('planText').innerText = `Error: ${error.message}`;
+        }
+    });
+});
 
         // Function to load athlete data
         function loadAthleteData() {
