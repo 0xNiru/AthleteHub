@@ -39,7 +39,8 @@ def predict_injury():
         # Improved prompt for structured response
         prompt = f"""
         You are a responsible sports doctor. Analyze the symptom: **"{symptoms}"**  
-        Provide a structured, concise response covering:  
+        Provide a structured, concise response covering: 
+        keep your response short and concise 
 
         **1. Possible Injuries**  
         **2. Recovery Plan**  
