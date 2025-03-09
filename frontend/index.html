@@ -72,34 +72,79 @@
     <!-- Navigation Bar -->
     <nav class="bg-white shadow-sm fixed w-full z-10">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between h-16">
+            <div class="flex justify-between items-center h-16">
+                <!-- Left Section (Logo) -->
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold text-primary-600"><img src ="https://i.postimg.cc/Z5CdmRVQ/k.png" alt="logo"> </span>
-                    <div class="hidden md:flex space-x-8 ml-10">
-                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-primary-600 border-b-2 border-primary-500">
-                            <span class="material-icons mr-1 text-sm">dashboard</span>
-                            Dashboard
-                        </a>
-                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-secondary-500 hover:text-secondary-700 hover:border-b-2 hover:border-primary-300 transition-all">
-                            <span class="material-icons mr-1 text-sm">trending_up</span>
-                            Performance
-                        </a>
-                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-secondary-500 hover:text-secondary-700 hover:border-b-2 hover:border-primary-300 transition-all">
-                            <span class="material-icons mr-1 text-sm">event</span>
-                            Events
-                        </a>
-                    </div>
+                    <a href="#" class="text-2xl font-bold text-primary-600">
+                        <img src="https://i.postimg.cc/Z5CdmRVQ/k.png" alt="logo" class="h-10 w-auto"> 
+                    </a>
                 </div>
-                <div class="flex items-center">
+    
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex space-x-8 ml-10">
+                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-primary-600 border-b-2 border-primary-500">
+                        <span class="material-icons mr-1 text-sm">dashboard</span>
+                        Dashboard
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-secondary-500 hover:text-secondary-700 hover:border-b-2 hover:border-primary-300 transition-all">
+                        <span class="material-icons mr-1 text-sm">trending_up</span>
+                        Performance
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-secondary-500 hover:text-secondary-700 hover:border-b-2 hover:border-primary-300 transition-all">
+                        <span class="material-icons mr-1 text-sm">event</span>
+                        Events
+                    </a>
+                </div>
+    
+                <!-- Right Section (Logout Button) -->
+                <div class="hidden md:flex items-center">
                     <button id="logoutBtn" class="flex items-center px-3 py-2 text-sm font-medium text-secondary-500 hover:text-secondary-700">
                         <span class="material-icons mr-1 text-sm">logout</span>
                         Logout
                     </button>
                 </div>
+    
+                <!-- Mobile Menu Button -->
+                <button id="menuToggle" class="md:hidden text-secondary-700 focus:outline-none">
+                    <span class="material-icons text-3xl">menu</span>
+                </button>
             </div>
         </div>
+    
+        <!-- Mobile Menu (Hidden by Default) -->
+        <div id="mobileMenu" class="hidden md:hidden flex flex-col space-y-2 px-4 pb-4 bg-white shadow-lg">
+            <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-primary-600 border-b-2 border-primary-500">
+                <span class="material-icons mr-1 text-sm">dashboard</span>
+                Dashboard
+            </a>
+            <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-secondary-500 hover:text-secondary-700 hover:border-b-2 hover:border-primary-300 transition-all">
+                <span class="material-icons mr-1 text-sm">trending_up</span>
+                Performance
+            </a>
+            <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-secondary-500 hover:text-secondary-700 hover:border-b-2 hover:border-primary-300 transition-all">
+                <span class="material-icons mr-1 text-sm">event</span>
+                Events
+            </a>
+            <button id="mobileLogoutBtn" class="flex items-center px-3 py-2 text-sm font-medium text-secondary-500 hover:text-secondary-700">
+                <span class="material-icons mr-1 text-sm">logout</span>
+                Logout
+            </button>
+        </div>
     </nav>
-
+    
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+    
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    
+    <!-- Include Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
     <!-- Main Content -->
     <main class="pt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
