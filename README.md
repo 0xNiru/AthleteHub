@@ -7,32 +7,12 @@
 **AthleteHub** is a comprehensive platform designed to empower athletes by providing tools for performance tracking, fitness monitoring, injury prediction, event registration, and financial planning. Tailored to meet the needs of athletes across various disciplines, AthleteHub offers a centralized hub for managing and enhancing athletic careers.
 
 ```mermaid
-graph TD
-  A[Problem Statement: Revolutionizing Athlete Management in Sports Industry] -->|Our Solution| B[Athlete Hub]
+flowchart TD
+  A[AthleteHub] --> B{Current Functionality}
+  A --> C{Future Goals}
+  B -.-o D(A prototype of what dashboard will look like <br> <br> Hardcoded 'Sync with Fitness Band' Button <br> <br> Gemini Api for Predicting Injuries <br> <br> Gemini API for Financial Planning <br> <br> Registration for upcoming events <br> <br> visual representation of athlete's performance and fitness <br> <br> A simple signup & login page using FIREBASE Auth)
+  C -.-o E(A Fullproof Login & Authentication via Sports Federation's API <br> <br> Fetching realtime Performance stats from APIs <br> <br> Integrating IOT devices such as Fitness band to get accurate fitness details <br> <br> Sponsorship Opportunities to Athletes)
 
-  B --> C[Future Goals]
-  B --> D[Current Functionality]
-
-  %% Future Goals
-  C --> C1[Fullproof Login]
-  C1 --> C2[Authentication using Federation APIs]
-  
-  C --> C3[Realtime Performance Stats]
-  C3 --> C4[Fetching Stats from API]
-
-  C --> C5[IoT Integration]
-  C5 --> C6[Fitness Bands for Account & Fitness Details]
-
-  C --> C7[Sponsorship Opportunities for Athletes]
-
-  %% Current Functionality
-  D --> D1[Prototype of Athlete Dashboard]
-  D --> D2[Hardcoded Sync with Fitness Band Button]
-  D --> D3[Gemini API for Predicting Injuries]
-  D --> D4[Gemini API for Financial Planning]
-  D --> D5[Register for Upcoming Events]
-  D --> D6[Graphical Representation of Performance & Fitness]
-  D --> D7[Signup & Login using Email]
 
 ```
 
