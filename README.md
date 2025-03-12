@@ -56,7 +56,7 @@ graph TD
     <td>Frontend</td>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" width="50"></td>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" width="50"></td>
-    <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" widthttps://alitech.io/wp-content/uploads/2024/08/google-ai-gemini91216.logowik.com_-866x471.webph="50"></td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="50"></td>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" width="50"></td>
   </tr>
   <tr>
