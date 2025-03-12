@@ -26,7 +26,7 @@ flowchart TD
 - **Upcoming Events:** Stay informed about upcoming competitions and register directly through the platform.
 - **Sports Financial Planning:** Generate tailored financial plans based on sport type, career level, budget, and goals.
 - **Edit Profile:** Update personal information, including name, role, and profile image.
-- **Federation Integration:** Display active Federation IDs to ensure authenticity and recognition.
+- **Federation Integration:** Display active federation IDs to ensure authenticity and recognition.
 
 ## Tech Stack
 
