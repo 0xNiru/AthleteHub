@@ -1,4 +1,7 @@
-# AthleteHub 🏅
+<div>
+<img src="https://i.postimg.cc/Z5CdmRVQ/k.png" alt="logo" align="center">
+   <img src="https://i.postimg.cc/02sT7y4x/gdg.webp" height="200px" align="left">
+</div>
 
 **AthleteHub** is a comprehensive platform designed to empower athletes by providing tools for performance tracking, fitness monitoring, injury prediction, event registration, and financial planning. Tailored to meet the needs of athletes across various disciplines, AthleteHub offers a centralized hub for managing and enhancing athletic careers.
 
