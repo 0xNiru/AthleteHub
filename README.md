@@ -5,7 +5,38 @@
 
 **AthleteHub** is a comprehensive platform designed to empower athletes by providing tools for performance tracking, fitness monitoring, injury prediction, event registration, and financial planning. Tailored to meet the needs of athletes across various disciplines, AthleteHub offers a centralized hub for managing and enhancing athletic careers.
 
-## Features
+```mermaid
+graph TD
+  A[Problem Statement: Revolutionizing Athlete Management in Sports Industry] -->|Our Solution| B[Athlete Hub]
+
+  B --> C[Future Goals]
+  B --> D[Current Functionality]
+
+  %% Future Goals
+  C --> C1[Fullproof Login]
+  C1 --> C2[Authentication using Federation APIs]
+  
+  C --> C3[Realtime Performance Stats]
+  C3 --> C4[Fetching Stats from API]
+
+  C --> C5[IoT Integration]
+  C5 --> C6[Fitness Bands for Account & Fitness Details]
+
+  C --> C7[Sponsorship Opportunities for Athletes]
+
+  %% Current Functionality
+  D --> D1[Prototype of Athlete Dashboard]
+  D --> D2[Hardcoded Sync with Fitness Band Button]
+  D --> D3[Gemini API for Predicting Injuries]
+  D --> D4[Gemini API for Financial Planning]
+  D --> D5[Register for Upcoming Events]
+  D --> D6[Graphical Representation of Performance & Fitness]
+  D --> D7[Signup & Login using Email]
+
+```
+
+
+## Features :
 
 ### Dashboard Overview
 - **Performance Stats:** Track wins, losses, draws, and calculate win rates.
@@ -20,62 +51,26 @@
 
 ## Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Flask (Python)
-- **AI Integration:** Leveraging AI models for injury prediction and fitness planning
-- **Database:** Firebase for real-time data storage and synchronization
-
-## Installation
-
-To run AthleteHub locally:
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/okayniraj/athletehub.git
-   cd athletehub
-   ```
-
-2. **Set Up a Virtual Environment:**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-   ```
-
-3. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the Application:**
-   ```bash
-   flask run
-   ```
-
-5. **Access the Platform:**
-   Open your browser and navigate to `http://127.0.0.1:5000/`.
-
-## Contributing
-
-We welcome contributions to enhance AthleteHub. To contribute:
-
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/YourFeatureName
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m 'Add some feature'
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature/YourFeatureName
-   ```
-5. Open a pull request detailing your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/okayniraj/athletehub/blob/main/LICENSE) file for details.
-
-
+<table>
+  <tr>
+    <td>Frontend</td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" width="50"></td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" width="50"></td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" widthttps://alitech.io/wp-content/uploads/2024/08/google-ai-gemini91216.logowik.com_-866x471.webph="50"></td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" width="50"></td>
+  </tr>
+  <tr>
+    <td>Backend</td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Flask_logo.svg" width="50"></td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="50"></td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Firebase_Logo.svg" width="50"></td>
+    <td><img src="https://i.postimg.cc/KjffLkxj/google-ai-gemini91216-logowik-com-866x471.webp" width="50"></td>
+  </tr>
+   <tr>
+      <td>Services</td>
+      <td><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" width="50"></td>
+      <td><img src="https://i.postimg.cc/DfP2WvkX/png-transparent-vercel-hd-logo-thumbnail.png" width="50"></td>
+      <td><img src="https://railway.app/brand/logo-dark.svg" width="50"></td>
+   </tr>
+</table>
 
