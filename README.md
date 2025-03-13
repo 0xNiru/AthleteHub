@@ -20,7 +20,7 @@ flowchart TD
 ## Features :
 
 ### Dashboard Overview
-- **Performance Stats:** Track wins, losses, draws, and calculate win rates,athletes can have all their data at a glance.
+- **Performance Stats:** Track wins, losses, draws, and calculate win rates.
 - **Fitness Tracking:** Monitor daily steps, heart rate, and calories burned.
 - **Injury Prediction & Fitness Plan:** Input symptoms to receive AI-driven insights and personalized fitness plans.
 - **Upcoming Events:** Stay informed about upcoming competitions and register directly through the platform.
