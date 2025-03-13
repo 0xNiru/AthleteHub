@@ -54,8 +54,8 @@ flowchart TD
 
 ## Team
 
-<img src="https://avatars.githubusercontent.com/u/149550225?v=4" align="center" width="50px">
-<img src="https://avatars.githubusercontent.com/u/195848214?v=4" align="center" width="50px">
-<img src="https://avatars.githubusercontent.com/u/160406243?v=4" align="center" width="50px">
-<img src="https://avatars.githubusercontent.com/u/185662712?v=4" align="center" width="50px">
+<img src="https://avatars.githubusercontent.com/u/149550225?v=4" align="center" width="50px"> - Niraj </br>
+<img src="https://avatars.githubusercontent.com/u/195848214?v=4" align="center" width="50px"> - Girish </br>
+<img src="https://avatars.githubusercontent.com/u/160406243?v=4" align="center" width="50px"> - Yash </br>
+<img src="https://avatars.githubusercontent.com/u/185662712?v=4" align="center" width="50px"> - Aditya </br>
 
