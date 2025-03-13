@@ -3,7 +3,6 @@
    <img src="https://i.postimg.cc/02sT7y4x/gdg.webp" height="200px" align="left">
 </div>
 
-
 **AthleteHub** is a comprehensive platform designed to empower athletes by providing tools for performance tracking, fitness monitoring, injury prediction, event registration, and financial planning. Tailored to meet the needs of athletes across various disciplines, AthleteHub offers a centralized hub for managing and enhancing athletic careers.
 
 ```mermaid
@@ -52,4 +51,11 @@ flowchart TD
       <td><img src="https://railway.app/brand/logo-dark.svg" width="50"></td>
    </tr>
 </table>
+
+## Team
+
+<img src="https://avatars.githubusercontent.com/u/149550225?v=4" align="center" width="50px">
+<img src="https://avatars.githubusercontent.com/u/195848214?v=4" align="center" width="50px">
+<img src="https://avatars.githubusercontent.com/u/160406243?v=4" align="center" width="50px">
+<img src="https://avatars.githubusercontent.com/u/185662712?v=4" align="center" width="50px">
 
