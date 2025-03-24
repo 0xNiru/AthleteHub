@@ -164,7 +164,7 @@
                 </button>
                 
                 <div class="flex flex-col md:flex-row items-center">
-                    <img id="profileImage" src="https://avatar.iran.liara.run/username?username=[firstname+lastname]" 
+                    <img id="profileImage" src="https://i.postimg.cc/Hkz9c9XN/pp.webp" 
                         alt="Athlete Profile" class="rounded-full w-24 h-24 object-cover border-4 border-primary-100">
                     <div class="md:ml-6 mt-4 md:mt-0 text-center md:text-left">
                         <h1 id="profileName" class="text-2xl font-bold text-secondary-900">Loading...</h1>
@@ -333,12 +333,15 @@
                 <form id="financialPlanForm" class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-secondary-700">Sport</label>
-                        <input type="text" id="sport" class="mt-1 block w-full rounded-md border-secondary-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 p-2">
+                        <input type="text" id="sport" 
+                               class="mt-1 block w-full rounded-md border-secondary-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 p-2"
+                               placeholder="Enter the sport you play...">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-secondary-700">Level</label>
-                        <select id="level" class="mt-1 block w-full rounded-md border-secondary-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 p-2">
+                        <select id="level" 
+                                class="mt-1 block w-full rounded-md border-secondary-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 p-2">
                             <option value="amateur">District</option>
                             <option value="semi-pro">State</option>
                             <option value="professional">National</option>
@@ -347,12 +350,16 @@
 
                     <div>
                         <label class="block text-sm font-medium text-secondary-700">Monthly Budget</label>
-                        <input type="number" id="monthly_budget" class="mt-1 block w-full rounded-md border-secondary-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 p-2">
+                        <input type="number" id="monthly_budget" 
+                               class="mt-1 block w-full rounded-md border-secondary-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 p-2"
+                               placeholder="Enter amount in ₹">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-secondary-700">Career Goals</label>
-                        <textarea id="goals" rows="3" class="mt-1 block w-full rounded-md border-secondary-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 p-2"></textarea>
+                        <textarea id="goals" rows="3" 
+                                  class="mt-1 block w-full rounded-md border-secondary-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 p-2"
+                                  placeholder="Describe your career goal..."></textarea>
                     </div>
 
                     <button type="submit" class="w-full bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 transition-colors">
